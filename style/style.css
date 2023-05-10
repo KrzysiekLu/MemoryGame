@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #222;
+}
+
+.game__bord {
+  overflow: hidden;
+  height: 80vh;
+  width: 80%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 10px;
+}
+.game__bord__tile {
+  border: 2px solid #fff;
+  box-shadow: 10px 10px 20px -10px #000;
+  transition: 0.3s all ease;
+  margin: 10px;
+  position: relative;
+}
+.game__bord__tile--flip {
+  transform: rotateY(90deg);
+  backface-visibility: hidden;
+}
+.game__bord__tile--back {
+  transform: rotateY(-90deg);
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  color: #fff;
+  transition: 0.3s ease 0.2s;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.game__bord__tile--back--flip {
+  transform: rotate(0);
+}/*# sourceMappingURL=style.css.map */
