@@ -1,20 +1,24 @@
-const tiles = document.querySelectorAll('.game__bord__tile')
+const lvlBTNs = document.querySelectorAll(".game_level button");
+const board = document.querySelector(".game__board");
 
-const countMoves = ()=>{
+const generateBoard = (numOfRows) => {
+  board.innerHTML = "";
+  for (let i = 0; i < numOfRows * numOfRows; i++) {
+    const tile = document.createElement("div");
+    tile.classList.add("tile");
+    tile.textContent = i;
+    board.style.setProperty(
+      "grid-template-columns",
+      `repeat(${numOfRows}, 1fr)`
+    );
+    board.style.setProperty("grid-template-rows", `repeat(${numOfRows}, 1fr)`);
+    board.style.color = "white";
+    board.appendChild(tile);
+  }
+};
 
-}
-
-const flipTile = (movesNum) =>{
-    tiles.forEach(tile =>{
-        tile.addEventListener('click',(e)=>{
-            e.target.classList.add('game__bord__tilie--flip')
-            e.target.children[0].classList.add('game__bord__tile--back--flip')
-        })
-    })
-}
-
-const init = ()=>{
-    flipTile()
-}
-
-init()
+lvlBTNs.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    generateBoard(e.target.dataset.row);
+  })
+);

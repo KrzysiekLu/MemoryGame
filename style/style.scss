@@ -1,47 +1,43 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    background: #222;
+body {
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
 }
-.game__bord{
-    overflow: hidden;
-    height: 80vh;
-    width: 80%;
-    margin: 30px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3 ,1fr);
-    padding: 10px;
+.game_level {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.game__board {
+  overflow: hidden;
+  margin: 30px auto;
+  display: inline-grid;
+  margin: 0 auto;
+  padding: 10px;
+  gap: 10px;
 
-    &__tile{
-        border: 2px solid #fff;
-        box-shadow: 10px 10px 20px -10px #000;
-        transition: 0.3s all ease;
-        margin: 10px;
-        position: relative;
-    }
-    &__tile--flip{
-        transform: rotateY(90deg);
-        backface-visibility: hidden;
-    }
-    &__tile--back{
-        transform: rotateY(-90deg);
-        backface-visibility: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        place-items: center;
-        font-size: 30px;
-        color: #fff;
-        transition: 0.3s ease 0.2s;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        &--flip{
-            transform: rotate(0);
-        }
-    }
+  .tile {
+    border: 1px solid #fff;
+    width: 100px;
+    height: 100px;
+  }
 }
 
+// buttons
+button {
+  border: 2px solid #fff;
+  background: none;
+  padding: 5px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
