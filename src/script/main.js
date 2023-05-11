@@ -1,6 +1,7 @@
 const lvlBTNs = document.querySelectorAll(".game_level button");
 const board = document.querySelector(".game__board");
 
+// Get img from folder and return array with images
 const fetchImg = (numOfRows) => {
   let imgArr = [];
   for (let i = 0; i < 2; i++) {
@@ -15,6 +16,7 @@ const fetchImg = (numOfRows) => {
   return shuffledArray;
 };
 
+// Create bord witch draws images
 const generateBoard = (numOfRows, imgArr) => {
   board.innerHTML = "";
   for (let i = 0; i < numOfRows * numOfRows; i++) {
@@ -31,8 +33,14 @@ const generateBoard = (numOfRows, imgArr) => {
   }
 };
 
+const showBoardAnimation = () => {
+  board.classList.add("game__board--active");
+};
+
+// Acttions for buttons
 lvlBTNs.forEach((btn) =>
   btn.addEventListener("click", (e) => {
+    showBoardAnimation();
     generateBoard(e.target.dataset.row, fetchImg(e.target.dataset.row));
   })
 );

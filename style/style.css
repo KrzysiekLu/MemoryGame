@@ -26,9 +26,17 @@ body {
   display: inline-grid;
   margin: 0 auto;
   padding: 10px;
-  gap: 10px;
+  gap: 300px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
 }
-.game__board .tile {
+
+.game__board--active {
+  padding: 10px;
+  gap: 10px;
+  opacity: 1;
+}
+.game__board--active .tile {
   border: 1px solid #fff;
   width: 100px;
   height: 100px;
@@ -36,7 +44,7 @@ body {
   place-items: center;
   padding: 10px;
 }
-.game__board .tile__img {
+.game__board--active .tile__img {
   max-width: 100%;
 }
 
@@ -47,4 +55,12 @@ button {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.game__timer {
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Share Tech", sans-serif;
+  padding: 20px;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

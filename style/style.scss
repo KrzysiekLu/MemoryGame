@@ -23,7 +23,14 @@ body {
   display: inline-grid;
   margin: 0 auto;
   padding: 10px;
+  gap: 300px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+}
+.game__board--active {
+  padding: 10px;
   gap: 10px;
+  opacity: 1;
 
   .tile {
     border: 1px solid #fff;
@@ -46,4 +53,13 @@ button {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+// Timer
+.game__timer {
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Share Tech", sans-serif;
+  padding: 20px;
+  text-align: center;
 }
