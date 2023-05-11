@@ -33,18 +33,28 @@ const generateBoard = (numOfRows, imgArr) => {
     board.appendChild(tile);
   }
 };
+// Start stopwatch
+
 const startTimer = () => {
   let ms = 0;
   setInterval(() => {
     ms++;
-    let min = `0${Math.floor((ms / 3600) % 60)}`;
-    let sec = `0${Math.floor((ms / 60) % 60)}`;
-    let mss = `0${Math.floor(ms % 60)}`;
+    let min = `0${Math.floor((ms / 6000) % 60)}`;
+    let sec = `0${Math.floor((ms / 100) % 60)}`;
+    let mss = `0${Math.floor(ms % 100)}`;
 
     timer[2].textContent = mss.slice(-2);
-    timer[1].textContent = sec.slice(-2);
-    timer[0].textContent = min.slice(-2);
-  }, 1000 / 60);
+    if (sec.length < 3) {
+      timer[1].textContent = sec.slice(-3);
+    } else {
+      timer[1].textContent = sec.slice(-2);
+    }
+    if (min.length < 3) {
+      timer[0].textContent = min.slice(-3);
+    } else {
+      timer[0].textContent = min.slice(-2);
+    }
+  }, 10);
 };
 
 const showBoardAnimation = () => {
