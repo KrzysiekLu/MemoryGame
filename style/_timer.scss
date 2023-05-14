@@ -1,0 +1,11 @@
+.game__timer {
+  font-size: 3rem;
+  color: #fff;
+  font-family: "Share Tech", sans-serif;
+  padding: 20px;
+  text-align: center;
+  display: none;
+}
+.game__timer--active {
+  display: block;
+}

@@ -1,6 +1,8 @@
-const lvlBTNs = document.querySelectorAll(".game_level button");
+const lvlBTNs = document.querySelectorAll(".game__level button");
 const board = document.querySelector(".game__board");
 const timer = document.querySelectorAll(".game__timer span");
+const lvlTitle = document.querySelector(".game__level__title");
+const initialCountdown = document.querySelector(".count");
 
 // Get img from folder and return array with images
 const fetchImg = (numOfRows) => {
@@ -33,9 +35,16 @@ const generateBoard = (numOfRows, imgArr) => {
     board.appendChild(tile);
   }
 };
+// show start animation
+const InitialCountdown = () => {
+  initialCountdown.classList.add("count--active");
+};
+
 // Start stopwatch
 
 const startTimer = () => {
+  console.log();
+  timer[0].parentNode.classList.add("game__timer--active");
   let ms = 0;
   setInterval(() => {
     ms++;
@@ -64,16 +73,27 @@ const showBoardAnimation = () => {
 // Switch off btns when game starts
 const deactivationBtn = () => {
   lvlBTNs.forEach((btn) => {
-    btn.setAttribute("disabled", "");
+    // btn.setAttribute("disabled", "");
+    btn.style.pointerEvents = "none";
   });
+};
+// change the appearance of the button when the level is selected
+const chooseLevel = (selectedBtn, btns) => {
+  btns.forEach((btn) => btn.classList.add("hide"));
+  selectedBtn.classList.remove("hide");
+  selectedBtn.classList.add("selected");
+  lvlTitle.classList.add("hidde");
 };
 // Acttions for buttons
 lvlBTNs.forEach((btn) =>
   btn.addEventListener("click", (e) => {
+    InitialCountdown();
     deactivationBtn();
-    showBoardAnimation();
-    startTimer();
-    generateBoard(e.target.dataset.row, fetchImg(e.target.dataset.row));
+    chooseLevel(e.target, lvlBTNs);
+    setTimeout(() => {
+      showBoardAnimation();
+      startTimer();
+      generateBoard(e.target.dataset.row, fetchImg(e.target.dataset.row));
+    }, 4000);
   })
 );
-console.log("11s235".slice(-2));

@@ -1,44 +1,44 @@
+@import "chooseLevel";
+@import "timer";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Share Tech", sans-serif;
+  color: #fff;
+  // border: 1px solid lime;
 }
 body {
-  background: #222;
+  background: #2c2c2c;
+}
+html {
+  font-size: 62.5%;
+}
+.game {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 30px;
 }
-.game_level {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
+.game__main-title {
+  font-size: 3rem;
+  margin: 2rem 0;
+  text-align: center;
 }
 .game__board {
-  overflow: hidden;
-  margin: 30px auto;
   display: inline-grid;
-  margin: 0 auto;
-  padding: 10px;
-  gap: 300px;
+  gap: 30rem;
   opacity: 0;
   transition: 0.5s all ease-in-out;
+  max-width: 100vw;
 }
 .game__board--active {
-  padding: 10px;
-  gap: 10px;
   opacity: 1;
+  gap: 1rem;
 
   .tile {
     border: 1px solid #fff;
-    width: 100px;
-    height: 100px;
     display: grid;
     place-items: center;
-    padding: 10px;
     &__img {
       max-width: 100%;
     }
@@ -46,20 +46,3 @@ body {
 }
 
 // buttons
-button {
-  border: 2px solid #fff;
-  background: none;
-  padding: 5px 20px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-// Timer
-.game__timer {
-  font-size: 3rem;
-  color: #fff;
-  font-family: "Share Tech", sans-serif;
-  padding: 20px;
-  text-align: center;
-}

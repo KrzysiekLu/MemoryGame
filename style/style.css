@@ -1,66 +1,162 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #222;
+.game__level {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 30px;
 }
-
-.game_level {
+.game__level__title {
+  font-family: "Share Tech", sans-serif;
+  text-align: center;
+  padding-bottom: 1rem;
+  transition: 0.3s all ease-in;
+}
+.game__level .hidde {
+  opacity: 0;
+  transform: translateY(-200px);
+  line-height: 0;
+  padding-bottom: 0;
+}
+.game__level__buttons {
   display: flex;
-  justify-content: center;
   gap: 30px;
   margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
 }
-
-.game__board {
-  overflow: hidden;
-  margin: 30px auto;
-  display: inline-grid;
-  margin: 0 auto;
-  padding: 10px;
-  gap: 300px;
-  opacity: 0;
-  transition: 0.5s all ease-in-out;
-}
-
-.game__board--active {
-  padding: 10px;
-  gap: 10px;
-  opacity: 1;
-}
-.game__board--active .tile {
-  border: 1px solid #fff;
-  width: 100px;
-  height: 100px;
-  display: grid;
-  place-items: center;
-  padding: 10px;
-}
-.game__board--active .tile__img {
-  max-width: 100%;
-}
-
-button {
+.game__level__buttons button {
   border: 2px solid #fff;
   background: none;
-  padding: 5px 20px;
+  padding: 0.6rem;
+  width: 10rem;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
+  transition: 0.3s opacity ease, 0s display 0.3s;
+  max-height: 10rem;
+}
+.game__level__buttons button:hover {
+  width: 12rem;
+  background: #464646;
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0.5rem 1rem -0.5rem #959595;
+}
+.game__level__buttons .selected {
+  background: #fff;
+  color: #222;
+}
+.game__level__buttons .hide {
+  opacity: 0;
+  display: none;
 }
 
+.count {
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  width: 200px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  position: absolute;
+}
+
+.count span {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  text-align: center;
+}
+
+.count--active span:first-child {
+  animation: 1s counterAnimation;
+}
+
+.count--active span:nth-child(2) {
+  animation: 1s counterAnimation 1s;
+}
+
+.count--active span:nth-child(3) {
+  animation: 1s counterAnimation 2s;
+}
+
+.count--active span:nth-child(4) {
+  animation: 2s counterAnimation 3s;
+}
+
+@keyframes counterAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.01);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .game__timer {
   font-size: 3rem;
   color: #fff;
   font-family: "Share Tech", sans-serif;
   padding: 20px;
   text-align: center;
+  display: none;
+}
+
+.game__timer--active {
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Share Tech", sans-serif;
+  color: #fff;
+}
+
+body {
+  background: #2c2c2c;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.game__main-title {
+  font-size: 3rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.game__board {
+  display: inline-grid;
+  gap: 30rem;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  max-width: 100vw;
+}
+
+.game__board--active {
+  opacity: 1;
+  gap: 1rem;
+}
+.game__board--active .tile {
+  border: 1px solid #fff;
+  display: grid;
+  place-items: center;
+}
+.game__board--active .tile__img {
+  max-width: 100%;
 }/*# sourceMappingURL=style.css.map */
