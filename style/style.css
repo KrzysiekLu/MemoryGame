@@ -57,6 +57,7 @@
   display: grid;
   place-items: center;
   position: absolute;
+  pointer-events: none;
 }
 
 .count span {
@@ -159,4 +160,5 @@ html {
 }
 .game__board--active .tile__img {
   max-width: 100%;
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */
