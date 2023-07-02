@@ -57,6 +57,7 @@
   display: grid;
   place-items: center;
   position: absolute;
+  pointer-events: none;
 }
 
 .count span {

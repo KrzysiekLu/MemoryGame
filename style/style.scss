@@ -41,6 +41,7 @@ html {
     place-items: center;
     &__img {
       max-width: 100%;
+      pointer-events: none;
     }
   }
 }
