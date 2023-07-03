@@ -161,4 +161,11 @@ html {
 .game__board--active .tile__img {
   max-width: 100%;
   pointer-events: none;
+}
+
+.glLink {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  margin: 20px;
 }/*# sourceMappingURL=style.css.map */
