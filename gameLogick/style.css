@@ -47,4 +47,11 @@ body {
   align-items: center;
   justify-content: center;
   transition: 0.5s;
+}
+
+.glLink {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  margin: 20px;
 }/*# sourceMappingURL=style.css.map */
