@@ -34,6 +34,7 @@ body {
 .clicked {
   background: #333;
   color: #fff;
+  pointer-events: none;
 }
 .score {
   font-size: 30px;
