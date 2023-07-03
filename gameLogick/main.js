@@ -1,5 +1,6 @@
 const board = document.querySelector(".board");
 const score = document.querySelector(".score span");
+const reBtn = document.querySelector(".restart");
 
 const tilesArr = [1, 2, 2, 1];
 
@@ -80,3 +81,10 @@ const init = () => {
 };
 
 init();
+reBtn.addEventListener("click", () => {
+  board.textContent = "";
+  controller.movement = [];
+  controller.moves = 0;
+  score = 0;
+  init();
+});
