@@ -82,9 +82,10 @@ const init = () => {
 
 init();
 reBtn.addEventListener("click", () => {
+  board.classList.remove("board--win");
   board.textContent = "";
-  controller.movement = [];
+  controller.movesValue = [];
   controller.moves = 0;
-  score = 0;
+  controller.scores = 0;
   init();
 });
