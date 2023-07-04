@@ -27,9 +27,11 @@ html {
 .game__board {
   display: inline-grid;
   gap: 30rem;
-  opacity: 0;
+  // opacity: 0;
   transition: 0.5s all ease-in-out;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .game__board--active {
   opacity: 1;
@@ -43,6 +45,9 @@ html {
       max-width: 100%;
       pointer-events: none;
     }
+  }
+  .clicked {
+    background-color: #fff;
   }
 }
 
