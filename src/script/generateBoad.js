@@ -1,4 +1,5 @@
 // Create bord witch draws images
+import * as winlogick from "./winLogick.js";
 export const generateBoard = (numOfRows, imgArr) => {
   const board = document.querySelector(".game__board");
   const tilesArr = [];
@@ -15,6 +16,7 @@ export const generateBoard = (numOfRows, imgArr) => {
     board.style.setProperty("grid-template-rows", `repeat(${numOfRows}, 1fr)`);
     board.appendChild(tile);
     tilesArr.push(tile);
+    winlogick.controller.numbOftiles = tilesArr.length;
   }
   return tilesArr;
 };
