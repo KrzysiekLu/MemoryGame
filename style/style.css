@@ -144,9 +144,10 @@ html {
 .game__board {
   display: inline-grid;
   gap: 30rem;
-  opacity: 0;
   transition: 0.5s all ease-in-out;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .game__board--active {
@@ -162,10 +163,20 @@ html {
   max-width: 100%;
   pointer-events: none;
 }
+.game__board--active .clicked {
+  background-color: #fff;
+}
 
 .glLink {
   display: block;
   text-align: center;
   font-size: 30px;
   margin: 20px;
+}
+
+.board--win {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

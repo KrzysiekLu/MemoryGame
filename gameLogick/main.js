@@ -2,7 +2,7 @@ const board = document.querySelector(".board");
 const score = document.querySelector(".score span");
 const reBtn = document.querySelector(".restart");
 
-const tilesArr = [1, 2, 2, 1];
+// const tilesArr = [1, 2, 2, 1];
 
 const controller = {
   moves: 0,
@@ -37,6 +37,7 @@ const checkPair = () => {
   } else {
     controller.scores++;
     score.textContent = controller.scores;
+    console.log(controller.movesValue.length);
 
     if (controller.movesValue.length === tilesArr.length) {
       endGame();
