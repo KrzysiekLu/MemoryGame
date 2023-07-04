@@ -1,4 +1,5 @@
 import { generateBoard } from "./generateBoad.js";
+import { startTimer } from "./stopwatch.js";
 
 const board = document.querySelector(".game__board");
 // const score = document.querySelector(".score span");
@@ -13,12 +14,14 @@ const controller = {
   movement: false,
   numbOftiles: 0,
   stopwatch: true,
+  win: false,
 };
 
 const countMoves = () => {
   controller.moves++;
 };
 const endGame = () => {
+  controller.win = true;
   setTimeout(() => {
     board.classList.add("board--win");
     board.textContent = "You win!!";
@@ -58,10 +61,10 @@ const handleClick = (e) => {
 
     if (controller.moves === 2) {
       controller.movement = true;
+      checkPair();
       setTimeout(() => {
         controller.movement = false;
-      }, 500);
-      checkPair();
+      }, 400);
       controller.moves = 0;
     }
   }
