@@ -1,11 +1,9 @@
-import { generateBoard } from "./generateBoad.js";
-import { startTimer } from "./stopwatch.js";
+// import { generateBoard } from "./generateBoad.js";
+// import { startTimer } from "./stopwatch.js";
 
 const board = document.querySelector(".game__board");
 // const score = document.querySelector(".score span");
 // const reBtn = document.querySelector(".restart");
-
-// const tilesArr = [1, 2, 2, 1];
 
 const controller = {
   moves: 0,
@@ -15,6 +13,7 @@ const controller = {
   numbOftiles: 0,
   stopwatch: true,
   win: false,
+  correctPair: false,
 };
 
 const countMoves = () => {
@@ -27,6 +26,7 @@ const endGame = () => {
     board.textContent = "You win!!";
   }, 800);
 };
+
 const checkPair = () => {
   const [firstTile, secondTile] = controller.movesValue;
   if (firstTile.dataset.index !== secondTile.dataset.index) {
@@ -34,9 +34,11 @@ const checkPair = () => {
       controller.movesValue.forEach((clickedElement) => {
         clickedElement.classList.remove("clicked");
         controller.movesValue = [];
+        controller.movement = false;
       });
     }, 1000);
   } else {
+    controller.movement = false;
     controller.movesValue = [];
     controller.scores++;
     if (controller.numbOftiles / 2 == controller.scores) {
@@ -62,9 +64,6 @@ const handleClick = (e) => {
     if (controller.moves === 2) {
       controller.movement = true;
       checkPair();
-      setTimeout(() => {
-        controller.movement = false;
-      }, 400);
       controller.moves = 0;
     }
   }
