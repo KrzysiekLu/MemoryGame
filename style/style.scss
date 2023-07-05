@@ -6,7 +6,6 @@
   box-sizing: border-box;
   font-family: "Share Tech", sans-serif;
   color: #fff;
-  // border: 1px solid lime;
 }
 body {
   background: #2c2c2c;
@@ -27,7 +26,6 @@ html {
 .game__board {
   display: inline-grid;
   gap: 30rem;
-  // opacity: 0;
   transition: 0.5s all ease-in-out;
   width: 100%;
   max-width: 500px;
@@ -43,6 +41,7 @@ html {
     justify-content: center;
     transform: rotateY(-180deg);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     position: absolute;
     transition: 0.2s ease;
     width: 100%;
