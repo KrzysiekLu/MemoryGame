@@ -16,10 +16,8 @@ export const generateBoard = (numOfRows, imgArr) => {
       `repeat(${numOfRows}, 1fr)`
     );
     board.style.setProperty("grid-template-rows", `repeat(${numOfRows}, 1fr)`);
-    tileFront.insertAdjacentElement("afterbegin", tileBack);
-    board.appendChild(tileFront);
-    tilesArr.push(tileBack);
-    winlogick.controller.numbOftiles = tilesArr.length;
+    board.appendChild(tile);
+    tilesArr.push(tile);
   }
   return tilesArr;
 };
