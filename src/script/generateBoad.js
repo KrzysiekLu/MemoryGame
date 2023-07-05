@@ -1,20 +1,25 @@
 // Create bord witch draws images
+import * as winlogick from "./winLogick.js";
 export const generateBoard = (numOfRows, imgArr) => {
   const board = document.querySelector(".game__board");
   const tilesArr = [];
 
   for (let i = 0; i < numOfRows * numOfRows; i++) {
-    const tile = document.createElement("div");
-    tile.classList.add("tile");
-    tile.appendChild(imgArr[i]);
-    tile.setAttribute("data-index", imgArr[i].src.slice(-5, -4));
+    const tileBack = document.createElement("div");
+    const tileFront = document.createElement("div");
+    tileFront.classList.add("tile-front");
+    tileBack.classList.add("tile-back");
+    tileBack.appendChild(imgArr[i]);
+    tileFront.setAttribute("data-index", imgArr[i].src.slice(-5, -4));
     board.style.setProperty(
       "grid-template-columns",
       `repeat(${numOfRows}, 1fr)`
     );
     board.style.setProperty("grid-template-rows", `repeat(${numOfRows}, 1fr)`);
-    board.appendChild(tile);
-    tilesArr.push(tile);
+    tileFront.insertAdjacentElement("afterbegin", tileBack);
+    board.appendChild(tileFront);
+    tilesArr.push(tileBack);
+    winlogick.controller.numbOftiles = tilesArr.length;
   }
   return tilesArr;
 };

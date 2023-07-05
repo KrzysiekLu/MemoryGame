@@ -1,77 +1,81 @@
-import { generateBoard } from "./generateBoad.js";
+// import { generateBoard } from "./generateBoad.js";
+// import { startTimer } from "./stopwatch.js";
 
 const board = document.querySelector(".game__board");
-const score = document.querySelector(".score span");
+// const score = document.querySelector(".score span");
 // const reBtn = document.querySelector(".restart");
-
-// const tilesArr = [1, 2, 2, 1];
 
 const controller = {
   moves: 0,
   movesValue: [],
   scores: 0,
   movement: false,
+  numbOftiles: 0,
+  stopwatch: true,
+  win: false,
+  correctPair: false,
 };
 
 const countMoves = () => {
   controller.moves++;
 };
-
-const checkPair = () => {
-  const [firstTile, secondTile] = controller.movesValue;
-
-  if (firstTile.innerText !== secondTile.innerText) {
-    setTimeout(() => {
-      controller.movesValue.forEach((clickedElement) => {
-        clickedElement.classList.remove("clicked");
-      });
-      controller.movesValue = [];
-    }, 1000);
-  } else {
-    controller.scores++;
-    score.textContent = controller.scores;
-
-    if (controller.movesValue.length === tilesArr.length) {
-      endGame();
-    }
-  }
-};
-
 const endGame = () => {
+  controller.win = true;
   setTimeout(() => {
     board.classList.add("board--win");
     board.textContent = "You win!!";
   }, 800);
 };
 
+const checkPair = () => {
+  const [firstTile, secondTile] = controller.movesValue;
+  if (firstTile.dataset.index !== secondTile.dataset.index) {
+    setTimeout(() => {
+      controller.movesValue.forEach((clickedElement) => {
+        clickedElement.classList.remove("clicked");
+        clickedElement.children[0].classList.remove("clicked");
+        controller.movesValue = [];
+        controller.movement = false;
+      });
+    }, 1000);
+  } else {
+    controller.movement = false;
+    controller.movesValue = [];
+    controller.scores++;
+    if (controller.numbOftiles / 2 == controller.scores) {
+      endGame();
+    }
+  }
+};
+
 const handleClick = (e) => {
   const targetTile = e.target;
-  console.log(e.target);
+  console.log(controller.numbOftiles);
 
   if (
     controller.moves <= 2 &&
     !controller.movement &&
-    targetTile.classList.contains("tile") &&
+    targetTile.classList.contains("tile-front") &&
     !targetTile.classList.contains("clicked")
   ) {
     countMoves();
     targetTile.classList.add("clicked");
+    targetTile.children[0].classList.add("clicked");
+
     controller.movesValue.push(targetTile);
 
     if (controller.moves === 2) {
       controller.movement = true;
-      setTimeout(() => {
-        controller.movement = false;
-      }, 1000);
       checkPair();
       controller.moves = 0;
     }
   }
 };
 
-export const init = () => {
+const init = () => {
   addEventListener("click", handleClick);
 };
+export { init, controller };
 
 // reBtn.addEventListener("click", () => {
 //   board.classList.remove("board--win");
