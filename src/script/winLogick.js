@@ -33,6 +33,9 @@ const checkPair = () => {
     setTimeout(() => {
       controller.movesValue.forEach((clickedElement) => {
         clickedElement.classList.remove("clicked");
+        clickedElement.children[0].classList.remove("clicked");
+        controller.movesValue = [];
+        controller.movement = false;
       });
     }, 1000);
   } else {
