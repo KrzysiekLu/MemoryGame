@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.game {
+  width: 100%;
+  height: 100svh;
+  background: linear-gradient(to bottom, #171616, rgb(117, 25, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game .lvlBtns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  transition: 0.4s ease;
+  position: absolute;
+}
+.game .lvlBtns--hidde {
+  position: absolute;
+  transform: translateX(-1000px);
+}
+.game .lvlBtns__btn {
+  padding: 8px 50px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: none;
+  border: 3px solid #545454;
+  color: #330101;
+  background: #7e7e7e;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px -10px #000;
+  transition: 0.2s ease;
+}
+.game .lvlBtns__btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 15px -10px #000;
+}
+.game__board {
+  display: grid;
+  max-width: 60svw;
+  max-height: 60svh;
+  width: 100%;
+  height: 100%;
+  gap: 30px;
+  place-items: center;
+  margin-top: auto;
+  margin-bottom: 100px;
+}
+.game__board .board__tile {
+  transform: translateX(100svw);
+  transition: 0.9s ease-in;
+  border: 4px solid #7e7e7e;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background: #545454;
+  box-shadow: 5px 10px 20px -5px #000;
+}
+.game__board .board__tile--show {
+  transform: translateX(0);
+  opacity: 1;
+  animation: tileAnimation 0.8s linear;
+}
+
+@keyframes tileAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(100svw) rotate(10deg);
+  }
+  80% {
+    transform: translateX(-30px) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0svw) rotate(0deg);
+  }
+}/*# sourceMappingURL=style.css.map */
