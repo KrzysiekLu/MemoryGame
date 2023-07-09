@@ -2,12 +2,16 @@
 import * as winlogick from "./winLogick.js";
 
 const initialTilesShowin = (tiles) => {
-  setInterval(() => {
-    tiles.forEach((tile) => tile.classList.add(".tile-back--hide"));
+  setTimeout(() => {
+    tiles.forEach((tile) => {
+      tile.classList.add("tile-back--hide");
+      console.log(tile.parentNode);
+      tile.parentNode.classList.add("tile-front--hide");
+    });
   }, 3000);
 };
 
-export const generateBoard = (numOfRows, imgArr) => {
+const generateBoard = (numOfRows, imgArr) => {
   const board = document.querySelector(".game__board");
   const tilesArr = [];
 
@@ -28,6 +32,9 @@ export const generateBoard = (numOfRows, imgArr) => {
     tilesArr.push(tileBack);
     winlogick.controller.numbOftiles = tilesArr.length;
   }
+
   initialTilesShowin(tilesArr);
   return tilesArr;
 };
+
+export { generateBoard };

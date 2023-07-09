@@ -49,10 +49,8 @@
 }
 
 .count {
-  top: 50%;
+  top: 45%;
   left: 50%;
-  height: 200px;
-  width: 200px;
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
@@ -69,6 +67,10 @@
   text-transform: uppercase;
   letter-spacing: 1.3px;
   text-align: center;
+  background: #222;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 20px;
 }
 
 .count--active span:first-child {
@@ -106,11 +108,12 @@
   font-family: "Share Tech", sans-serif;
   padding: 20px;
   text-align: center;
-  display: none;
+  opacity: 0;
+  transition: 0.2s ease;
 }
 
 .game__timer--active {
-  display: block;
+  opacity: 1;
 }
 
 * {
@@ -164,6 +167,9 @@ html {
   transition: 0.2s ease;
   width: 100%;
   height: 100%;
+  border: 1px solid #fff;
+}
+.game__board--active .tile-back--hide {
   transform: rotateY(-180deg);
 }
 .game__board--active .tile-back__img {
@@ -179,6 +185,10 @@ html {
   border: 1px solid #fff;
   position: relative;
   transition: 0.2s ease;
+}
+.game__board--active .tile-front--hide {
+  transition: 0.2s ease;
+  transform: rotateY(-180deg);
 }
 .game__board--active .tile-front.clicked {
   transform: rotateY(-180deg);
