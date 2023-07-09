@@ -29,6 +29,8 @@ const deactivationBtn = () => {
     btn.style.pointerEvents = "none";
   });
 };
+// Show tiles for 3s.
+
 // change the appearance of the button when the level is selected
 const chooseLevel = (selectedBtn, btns) => {
   btns.forEach((btn) => btn.classList.add("hide"));
