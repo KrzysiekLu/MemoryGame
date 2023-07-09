@@ -164,8 +164,6 @@ html {
   transition: 0.2s ease;
   width: 100%;
   height: 100%;
-}
-.game__board--active .tile-back--hide {
   transform: rotateY(-180deg);
 }
 .game__board--active .tile-back__img {
