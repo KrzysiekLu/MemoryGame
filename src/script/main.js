@@ -22,7 +22,7 @@ const fetchImg = (numOfRows) => {
   }
   const shuffledArray = imgArr.sort((a, b) => 0.5 - Math.random());
 
-  return imgArr;
+  return shuffledArray;
 };
 
 // Switch off btns when game starts

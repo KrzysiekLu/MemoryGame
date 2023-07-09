@@ -20,11 +20,7 @@ const generateBoard = (numOfRows, imgArr) => {
     tileFront.classList.add("tile-front");
     tileBack.classList.add("tile-back");
     tileBack.appendChild(imgArr[i]);
-    // dodać warunek if data slice.length >1 to inny slice
-    // usunąć tasowanie tablicy z main JS i wstawić ją tutaj i dopiero umieścić na planszy każdy z elementów
-
     tileFront.setAttribute("data-index", imgArr[i].dataset.index);
-
     board.style.setProperty(
       "grid-template-columns",
       `repeat(${numOfRows}, 1fr)`
