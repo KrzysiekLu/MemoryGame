@@ -52,3 +52,7 @@ lvlBTNs.forEach((btn) =>
     }, 3500);
   })
 );
+
+document.body.addEventListener("click", (e) => {
+  console.log(e.target);
+});
