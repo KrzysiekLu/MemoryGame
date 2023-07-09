@@ -50,9 +50,10 @@ html {
     &--hide {
       transform: rotateY(-180deg);
     }
-    &__img {
+    .tile__img {
       max-width: 100%;
       pointer-events: none;
+      object-fit: contain;
     }
     &.clicked {
       transform: rotateY(0deg);

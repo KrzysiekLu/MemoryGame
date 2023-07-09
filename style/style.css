@@ -172,9 +172,11 @@ html {
 .game__board--active .tile-back--hide {
   transform: rotateY(-180deg);
 }
-.game__board--active .tile-back__img {
+.game__board--active .tile-back .tile__img {
   max-width: 100%;
   pointer-events: none;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .game__board--active .tile-back.clicked {
   transform: rotateY(0deg);
