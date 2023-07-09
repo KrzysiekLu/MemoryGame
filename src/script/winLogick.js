@@ -37,7 +37,7 @@ const checkPair = () => {
         controller.movesValue = [];
         controller.movement = false;
       });
-    }, 1000);
+    }, 500);
   } else {
     controller.movement = false;
     controller.movesValue = [];
