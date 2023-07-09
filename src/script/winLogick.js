@@ -49,6 +49,8 @@ const checkPair = () => {
 };
 
 const handleClick = (e) => {
+  console.log(e.target);
+
   const targetTile = e.target;
   console.log(controller.numbOftiles);
 
