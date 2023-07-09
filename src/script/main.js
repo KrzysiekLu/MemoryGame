@@ -16,11 +16,13 @@ const fetchImg = (numOfRows) => {
       const img = document.createElement("img");
       img.classList.add("tile__img");
       img.src = `./src/images/img-${i}.png`;
+      img.setAttribute("data-index", i);
       imgArr.push(img);
     }
   }
   const shuffledArray = imgArr.sort((a, b) => 0.5 - Math.random());
-  return shuffledArray;
+
+  return imgArr;
 };
 
 // Switch off btns when game starts

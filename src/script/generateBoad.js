@@ -5,7 +5,6 @@ const initialTilesShowin = (tiles) => {
   setTimeout(() => {
     tiles.forEach((tile) => {
       tile.classList.add("tile-back--hide");
-      console.log(tile.parentNode);
       tile.parentNode.classList.add("tile-front--hide");
     });
   }, 3000);
@@ -21,7 +20,11 @@ const generateBoard = (numOfRows, imgArr) => {
     tileFront.classList.add("tile-front");
     tileBack.classList.add("tile-back");
     tileBack.appendChild(imgArr[i]);
-    tileFront.setAttribute("data-index", imgArr[i].src.slice(-5, -4));
+    // dodać warunek if data slice.length >1 to inny slice
+    // usunąć tasowanie tablicy z main JS i wstawić ją tutaj i dopiero umieścić na planszy każdy z elementów
+
+    tileFront.setAttribute("data-index", imgArr[i].dataset.index);
+
     board.style.setProperty(
       "grid-template-columns",
       `repeat(${numOfRows}, 1fr)`
