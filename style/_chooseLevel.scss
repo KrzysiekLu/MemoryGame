@@ -26,7 +26,7 @@
     background: none;
     padding: 0.6rem;
     width: 10rem;
-    color: #fff;
+    color: #545454;
     text-transform: uppercase;
     font-weight: 600;
     transition: 0.3s opacity ease, 0s display 0.3s;
@@ -34,7 +34,7 @@
     transition: 0.3s ease;
     &:hover {
       width: 12rem;
-      background: #464646;
+      background: #b0b0b0;
       transform: translateY(-0.5rem);
       box-shadow: 0 0.5rem 1rem -0.5rem #959595;
     }

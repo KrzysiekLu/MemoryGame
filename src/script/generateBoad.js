@@ -25,6 +25,7 @@ const generateBoard = (numOfRows, imgArr) => {
       "grid-template-columns",
       `repeat(${numOfRows}, 1fr)`
     );
+    board.style.maxWidth = `${numOfRows * 120}px`;
     board.style.setProperty("grid-template-rows", `repeat(${numOfRows}, 1fr)`);
     tileFront.insertAdjacentElement("afterbegin", tileBack);
     board.appendChild(tileFront);
