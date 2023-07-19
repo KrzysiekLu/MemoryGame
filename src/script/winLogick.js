@@ -1,3 +1,5 @@
+import { startTimer } from "./stopwatch.js";
+
 const board = document.querySelector(".game__board");
 
 const controller = {
@@ -44,11 +46,7 @@ const checkPair = () => {
 };
 
 const handleClick = (e) => {
-  console.log(e.target);
-
   const targetTile = e.target;
-  console.log(controller.numbOftiles);
-
   if (
     controller.moves <= 2 &&
     !controller.movement &&
@@ -72,13 +70,4 @@ const handleClick = (e) => {
 const init = () => {
   addEventListener("click", handleClick);
 };
-export { init, controller };
-
-// reBtn.addEventListener("click", () => {
-//   board.classList.remove("board--win");
-//   board.textContent = "";
-//   controller.movesValue = [];
-//   controller.moves = 0;
-//   controller.scores = 0;
-//   init();
-// });
+export { init, controller, endGame };

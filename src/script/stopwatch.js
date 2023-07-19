@@ -2,11 +2,11 @@ import { controller } from "./winLogick.js";
 
 // start stopwatch
 const timer = document.querySelectorAll(".game__timer span");
-
-export const startTimer = () => {
+let ms = 0;
+let timerInterval;
+const startTimer = () => {
   timer[0].parentNode.classList.add("game__timer--active");
-  let ms = 0;
-  let timerInterval;
+
   timerInterval = setInterval(() => {
     if (!controller.win) {
       ms++;
@@ -28,11 +28,9 @@ export const startTimer = () => {
     }
   }, 10);
 };
-// export const stopTimer = () => {
-//   return clearInterval(startTimer);
-// };
-// setTimeout(() => {
-//   console.log("stop");
+const clearTimer = () => {
+  ms = 0;
+  clearInterval(timerInterval);
+};
 
-//   stopTimer();
-// }, 4000);
+export { startTimer, clearTimer };
