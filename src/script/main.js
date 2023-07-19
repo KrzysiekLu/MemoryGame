@@ -1,28 +1,12 @@
 const lvlBTNs = document.querySelectorAll(".game__level button");
 const lvlTitle = document.querySelector(".game__level__title");
 
-import * as winLogick from "./winLogick.js";
+// import * as winLogick from "./winLogick.js";
 import { startTimer } from "./stopwatch.js";
 import { generateBoard } from "./generateBoad.js";
 import * as animations from "./animations.js";
 import { init } from "./winLogick.js";
-
-// Get img from folder and return array with images
-const fetchImg = (numOfRows) => {
-  let imgArr = [];
-  for (let i = 0; i < 2; i++) {
-    for (let i = 0; i < (numOfRows * numOfRows) / 2; i++) {
-      const img = document.createElement("img");
-      img.classList.add("tile__img");
-      img.src = `./src/images/img-${i}.png`;
-      img.setAttribute("data-index", i);
-      imgArr.push(img);
-    }
-  }
-  const shuffledArray = imgArr.sort((a, b) => 0.5 - Math.random());
-
-  return shuffledArray;
-};
+import { fetchImg } from "./generateBoad.js";
 
 // Switch off btns when game starts
 const deactivationBtn = () => {
@@ -45,7 +29,7 @@ lvlBTNs.forEach((btn) =>
     animations.InitialCountdown();
     deactivationBtn();
     chooseLevel(e.target, lvlBTNs);
-    generateBoard(e.target.dataset.lvl, fetchImg(e.target.dataset.row));
+    generateBoard(e.target.dataset.lvl, fetchImg(e.target.dataset.lvl));
     animations.showBoardAnimation();
     setTimeout(() => {
       init();
