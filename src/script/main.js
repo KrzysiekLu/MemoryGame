@@ -10,6 +10,7 @@ import { init } from "./winLogick.js";
 import { fetchImg } from "./generateBoad.js";
 import { controller } from "./winLogick.js";
 import { clearTimer } from "./stopwatch.js";
+import { restartInitialCountdown } from "./animations.js";
 
 // change the appearance of the button when the level is selected
 const chooseLevel = (selectedBtn, btns) => {
@@ -29,6 +30,7 @@ lvlBTNs.forEach((btn) =>
     setTimeout(() => {
       init();
       startTimer();
+      restartBTN.addEventListener("click", restart);
     }, 4000);
   })
 );
@@ -41,15 +43,14 @@ const restart = () => {
   controller.moves = 0;
   controller.scores = 0;
   lvlTitle.classList.remove("hidde");
+  restartInitialCountdown();
   lvlBTNs.forEach((btn) => {
     btn.classList.remove("hide");
+    btn.classList.remove("selected");
   });
-  // controller.win = true;
   clearTimer();
-
-  // init();
+  restartBTN.removeEventListener("click", restart);
 };
-restartBTN.addEventListener("click", restart);
 // iphone fix ??
 document.body.addEventListener("click", (e) => {
   // console.log(e.target);

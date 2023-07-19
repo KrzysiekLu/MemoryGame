@@ -31,6 +31,7 @@ const startTimer = () => {
 const clearTimer = () => {
   ms = 0;
   clearInterval(timerInterval);
+  timer[0].parentNode.classList.remove("game__timer--active");
 };
 
 export { startTimer, clearTimer };
