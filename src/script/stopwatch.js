@@ -1,4 +1,5 @@
 import { controller } from "./winLogick.js";
+
 // start stopwatch
 const timer = document.querySelectorAll(".game__timer span");
 

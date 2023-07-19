@@ -1,9 +1,4 @@
-// import { generateBoard } from "./generateBoad.js";
-// import { startTimer } from "./stopwatch.js";
-
 const board = document.querySelector(".game__board");
-// const score = document.querySelector(".score span");
-// const reBtn = document.querySelector(".restart");
 
 const controller = {
   moves: 0,

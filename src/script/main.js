@@ -4,7 +4,6 @@ const lvlTitle = document.querySelector(".game__level__title");
 import * as winLogick from "./winLogick.js";
 import { startTimer } from "./stopwatch.js";
 import { generateBoard } from "./generateBoad.js";
-// import { hideTiles } from "./generateBoad.js";
 import * as animations from "./animations.js";
 import { init } from "./winLogick.js";
 
@@ -28,7 +27,6 @@ const fetchImg = (numOfRows) => {
 // Switch off btns when game starts
 const deactivationBtn = () => {
   lvlBTNs.forEach((btn) => {
-    // btn.setAttribute("disabled", "");
     btn.style.pointerEvents = "none";
   });
 };
@@ -47,12 +45,11 @@ lvlBTNs.forEach((btn) =>
     animations.InitialCountdown();
     deactivationBtn();
     chooseLevel(e.target, lvlBTNs);
-    generateBoard(e.target.dataset.row, fetchImg(e.target.dataset.row));
+    generateBoard(e.target.dataset.lvl, fetchImg(e.target.dataset.row));
     animations.showBoardAnimation();
     setTimeout(() => {
       init();
       startTimer();
-      // hideTiles();
     }, 4000);
   })
 );
